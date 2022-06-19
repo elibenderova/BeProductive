@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="BeProductive.MainPage"
+                  IsPresented="False">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <Grid BackgroundColor="#FEF0E6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid>
+                    <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="icon" Aspect="AspectFill" WidthRequest="85" HeightRequest="135" />
+                        <Label Text="Be Productive" TextColor="#06113C" FontAttributes="Bold" FontSize="Large" />
+                    </StackLayout>
+            </Grid>
+            <StackLayout Margin="20,20,20,0" Grid.Row="1" Spacing="45">
+                    <ListView ItemSelected="ListView_ItemSelected" BackgroundColor="#FEF0E6">
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Home</x:String>
+                                <x:String>Categories</x:String>
+                                <x:String>Tasks</x:String>
+                                <x:String>Daily Tasks</x:String>
+                            </x:Array>
+                        </ListView.ItemsSource>
+                    </ListView>
+                </StackLayout>
+        </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
+    
+

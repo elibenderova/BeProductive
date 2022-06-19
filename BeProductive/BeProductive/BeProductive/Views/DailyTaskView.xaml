@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="BeProductive.Views.DailyTaskView"
+             BackgroundColor="#FEF0E6"
+             Title="Daily Tasks">
+
+        
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="searchicon"
+                     Clicked="Search_Clicked">
+        </ToolbarItem>
+        <ToolbarItem IconImageSource="sorticon"
+                     Clicked="Sort_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <NavigationPage.TitleView>
+        <SearchBar x:Name="searchBar" HeightRequest="44" WidthRequest="300" Placeholder="Search Task" TextChanged="SearchBar_TextChanged" IsVisible="false"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="25,0,0,0" RowDefinitions="Auto, Auto, Auto, *" ColumnDefinitions="Auto, *, Auto" BackgroundColor="#FEF0E6">
+                <Image Grid.Row="0" Grid.Column="2" Source="rightcorner" HeightRequest="150"/>
+                <Image Grid.Row="1" Grid.Column="0" Source="calendar" HeightRequest="70" Margin="0,-50,0,0" VerticalOptions="Start"/>
+                <Label x:Name="dateLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,-50,0,0" TextColor="#06113C" FontAttributes="Bold" FontSize="45" Padding="10,0,0,0"/>
+
+                <CollectionView x:Name="tasks"
+                            Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+                            VerticalScrollBarVisibility="Never"
+                            VerticalOptions="Start">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">
+                                <Label Text="{Binding DateAndTime, StringFormat='{}{0:hh\\:mm tt}'}" Grid.Row="0" Grid.Column="0" TextColor="#06113C" FontAttributes="Bold" VerticalOptions="Start"/>
+                                <BoxView Grid.Row="1" Grid.Column="0" WidthRequest="4" Color="#06113C" HeightRequest="120" Margin="25,0,50,0" />
+
+                                <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" CornerRadius="25" HasShadow="True" Margin="5,0,30,60" BackgroundColor="#FF8C32">
+                                    <StackLayout>
+                                        <CheckBox IsChecked="False" Color="#06113C" CheckedChanged="CompleteTask_CheckedChanged"></CheckBox>
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="#06113C" FontSize="20"/>
+
+                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                                <Label Text="Category:" FontSize="18" FontAttributes="Italic" TextColor="#06113C"></Label>
+                                            <Label Text="{Binding Category.Name}" TextColor="White" FontAttributes="Bold" FontSize="18"/>
+                                            </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                            <Label Text="Priority:" FontSize="18" FontAttributes="Italic" TextColor="#06113C"></Label>
+                                            <Label Text="{Binding Priority.Level}" TextColor="White" FontAttributes="Bold" FontSize="18"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

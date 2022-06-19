@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="BeProductive.Views.HomeView"
+             BackgroundColor="#FEF0E6"
+             Title="Home">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontSize="50"
+                   FontAttributes="Italic,Bold"
+                   TextColor="#FF8C32"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0, 30, 0, 0">
+                Hello!
+            </Label>
+
+            <Label x:Name="message"
+                   FontSize="25"
+                   FontAttributes="Italic,Bold" 
+                   TextColor="#06113C"
+                   Margin="50, 30"></Label>
+
+            <forms:AnimationView
+                x:Name="animationView"
+                Animation="taskman.json"
+                AnimationSource="AssetOrBundle"
+                RepeatCount="10"
+                RepeatMode="Restart"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

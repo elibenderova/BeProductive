@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             Title="Add Task"
+             BackgroundColor="#FEF0E6"
+             x:Class="BeProductive.Views.AddTaskView">
+    <ContentPage.Content>
+        <StackLayout Margin="40">
+            <Label Text="Name" FontSize="20" FontAttributes="Bold" TextColor="#06113C"></Label>
+            <Entry Placeholder="Name" TextColor="#06113C" x:Name="nameEntry"></Entry>
+
+            <Label Text="Category" FontSize="20" FontAttributes="Bold" TextColor="#06113C"></Label>
+            <Picker x:Name="categoryPicker" Title="Category" ItemDisplayBinding="{Binding Name}"></Picker>
+
+            <Label Text="Priority" FontSize="20" FontAttributes="Bold" TextColor="#06113C"></Label>
+            <Picker x:Name="priorityPicker" Title="Priority" ItemDisplayBinding="{Binding Level}"></Picker>
+
+            <Label Text="Date" FontSize="20" FontAttributes="Bold" TextColor="#06113C"></Label>
+            <DatePicker x:Name="datePicker"></DatePicker>
+
+            <Label Text="Time" FontSize="20" FontAttributes="Bold" TextColor="#06113C"></Label>
+            <TimePicker x:Name="timePicker"></TimePicker>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Notification" FontSize="20" FontAttributes="Bold" TextColor="#06113C" Padding="0, 0, 170, 0"></Label>
+                <Switch x:Name="notificationSwitcher" OnColor="#FF8C32" ThumbColor="#06113C" IsToggled="{Binding NotificationAllowed}"></Switch>
+            </StackLayout>
+            
+            <Button Text="Add"
+                TextColor="#06113C"
+                FontAttributes="Bold"
+                FontSize="25"
+                Background="#FF8C32"
+                CornerRadius="30"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="AddButton_Clicked">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

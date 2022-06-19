@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#FEF0E6"
+             Title="Edit Category"
+             x:Class="BeProductive.Views.EditCategoryView">
+    <ContentPage.Content>
+        <StackLayout Margin="40">
+            <Label Text="Name" FontSize="20" FontAttributes="Bold" TextColor="#06113C"></Label>
+            <Entry Placeholder="Name" TextColor="#06113C" x:Name="nameEntry"></Entry>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Edit"
+                TextColor="#06113C"
+                FontAttributes="Bold"
+                FontSize="25"
+                Background="#FF8C32"
+                CornerRadius="30"
+                Margin="0, 30"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="EditButton_Clicked">
+                </Button>
+
+                <Button Text="Delete"
+                TextColor="#06113C"
+                FontAttributes="Bold"
+                FontSize="25"
+                Background="#FF8C32"
+                CornerRadius="30"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="DeleteButton_Clicked">
+                </Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xcViews="clr-namespace:XCalendar;assembly=XCalendar"
+             Title="Tasks"
+             BackgroundColor="#FEF0E6"
+             x:Class="BeProductive.Views.TaskView"
+             x:Subclass="BeProductive.Views.CategoryView">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="addicon"
+                     Clicked="AddTask_Clicked">
+        </ToolbarItem>
+        <ToolbarItem IconImageSource="calendaricon"
+                     Clicked="ResizeCalendar_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <xcViews:CalendarView x:Name="calendar"
+                                      SelectionType="Single"
+                                      DateSelectionChanged="CalendarView_DateSelectionChanged"
+                                      NavigationTextColor="#06113C"
+                                      DayNameTextColor="#06113C"
+                                      NavigationArrowBackgroundColor="#FF8C32"
+                                      NavigationArrowColor="#06113C"
+                                      NavigationBackgroundColor="#FF8C32">
+
+                </xcViews:CalendarView>
+
+                <StackLayout Margin="10">
+                    <Label x:Name="taskLabel" FontSize="25" FontAttributes="Bold" Text="All Tasks" TextColor="#FF8C32" Margin="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <ListView x:Name="tasksListView" ItemSelected="tasksListView_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Name}" TextColor="#06113C">
+                                </TextCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
